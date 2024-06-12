@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 require("dotenv").config();
 require("./dbConnection");
 const PORT = process.env.PORT;
@@ -7,6 +8,7 @@ const salesRoutes = require("./routes/sale");
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 app.use("/user", userRoutes);
 app.use("/sale", salesRoutes);
 
