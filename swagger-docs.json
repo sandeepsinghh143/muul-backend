@@ -1,0 +1,96 @@
+{
+  "swagger": "2.0",
+  "info": { "contact": {}, "title": "Muul Dashboard", "version": "1.0.0" },
+  "host": "https://muul-backend.onrender.com",
+  "basePath": "/",
+  "schemes": ["https"],
+  "paths": {
+    "/sale/buy/{userId}": {
+      "parameters": [
+        { "in": "path", "name": "userId", "required": true, "type": "string" }
+      ],
+      "post": {
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "price": { "example": 900, "type": "number" },
+                "product": { "example": "jeans", "type": "string" },
+                "quantity": { "example": 2, "type": "number" },
+                "status": { "example": "Pending", "type": "string" }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "tags": ["sale"],
+        "description": "Add Sales",
+        "operationId": "addSales",
+        "summary": "Add Sales"
+      }
+    },
+    "/sale/get-all-sales": {
+      "get": {
+        "parameters": [],
+        "responses": { "200": { "description": "" } },
+        "tags": ["sale"],
+        "description": "Get All Sales",
+        "operationId": "getAllSales",
+        "summary": "Get All Sales"
+      }
+    },
+    "/user/login": {
+      "post": {
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "email": { "example": "aman@aman.com", "type": "string" },
+                "password": { "example": "aman1234", "type": "string" }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "tags": ["user"],
+        "description": "Login",
+        "operationId": "login",
+        "summary": "Login"
+      }
+    },
+    "/user/register": {
+      "post": {
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "age": { "example": 25, "type": "number" },
+                "email": { "example": "mohit@mohit.com", "type": "string" },
+                "name": { "example": "mohit", "type": "string" },
+                "password": { "example": "mohit1234", "type": "string" }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "tags": ["user"],
+        "description": "Sign up",
+        "operationId": "signUp",
+        "summary": "Sign up"
+      }
+    }
+  },
+  "tags": [{ "name": "user" }, { "name": "sale" }]
+}
